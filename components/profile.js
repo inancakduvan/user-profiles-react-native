@@ -3,9 +3,11 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'rea
 import { MaterialIcons } from "@expo/vector-icons";
 import { WebView } from 'react-native-webview';
 
-export default function Home() {
+export default function Profile({ navigation }) {
     const maleIcon = "../assets/male.png";
     const femaleIcon = "../assets/female.png";
+
+    const item = navigation.getParam("results")[0];
 
     return (
         <View style={styles.container}>
@@ -14,14 +16,13 @@ export default function Home() {
                     <Image
                         style={styles.profilePhoto}
                         source={{
-                            uri:
-                                'https://gpluseurope.com/wp-content/uploads/Mauro-profile-picture.jpg',
+                            uri: item.picture.large,
                         }}
                     />
 
                     <View style={styles.profileInfo}>
                         <Text style={styles.profileInfoHeading}>Name</Text>
-                        <Text style={styles.profileInfoName}>Ahmet Mümtaz</Text>
+                        <Text style={styles.profileInfoName}>{item.name.title}. {item.name.first} {item.name.last}</Text>
                     </View>
                 </View>
 
@@ -35,12 +36,12 @@ export default function Home() {
                 <View style={styles.profileInfoDetail}>
                     <View style={styles.profileInfoDetailSection}>
                         <Text style={styles.profileInfoDetailHeading}>Gender</Text>
-                        <Image style={styles.profileInfoDetailIcon} source={require(maleIcon)} />
+                        <Image style={styles.profileInfoDetailIcon} source={item.gender === "female" ? require(femaleIcon) : require(maleIcon)} />
                     </View>
 
                     <View style={styles.profileInfoDetailSection}>
                         <Text style={styles.profileInfoDetailHeading}>Age</Text>
-                        <Text style={styles.profileInfoDetailDesc}>34</Text>
+                        <Text style={styles.profileInfoDetailDesc}>{item.dob.age}</Text>
                     </View>
                 </View>
             </ScrollView>
