@@ -3,8 +3,10 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'rea
 import { MaterialIcons } from "@expo/vector-icons";
 import { WebView } from 'react-native-webview';
 
-
 export default function Home() {
+    const maleIcon = "../assets/male.png";
+    const femaleIcon = "../assets/female.png";
+
     return (
         <View style={styles.container}>
             <ScrollView style={styles.profile}>
@@ -33,12 +35,12 @@ export default function Home() {
                 <View style={styles.profileInfoDetail}>
                     <View style={styles.profileInfoDetailSection}>
                         <Text style={styles.profileInfoDetailHeading}>Gender</Text>
-                        <Text style={styles.profileInfoDetailDesc}>Male</Text>
+                        <Image style={styles.profileInfoDetailIcon} source={require(maleIcon)} />
                     </View>
 
                     <View style={styles.profileInfoDetailSection}>
-                        <Text style={styles.profileInfoDetailHeading}>Gender</Text>
-                        <Text style={styles.profileInfoDetailDesc}>Male</Text>
+                        <Text style={styles.profileInfoDetailHeading}>Age</Text>
+                        <Text style={styles.profileInfoDetailDesc}>34</Text>
                     </View>
                 </View>
             </ScrollView>
@@ -52,10 +54,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-start',
         justifyContent: 'center',
+        backgroundColor: "#fff"
     },
     profile: {
         width: "100%",
-        paddingTop: 40
+        paddingTop: 10
     },
     profileHeader: {
         flexDirection: "row",
@@ -88,7 +91,25 @@ const styles = StyleSheet.create({
     },
     profileInfoDetailSection: {
         width: "50%",
-        padding: 10
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: "#eee"
+    },
+    profileInfoDetailHeading: {
+        color: "gray",
+        marginBottom: 10,
+        textAlign: "center"
+    },
+    profileInfoDetailDesc: {
+        fontSize: 34,
+        color: "#8895f5",
+        textAlign: "center"
+    },
+    profileInfoDetailIcon: {
+        width: 40,
+        height: 40
     }
 
 });

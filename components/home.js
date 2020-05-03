@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { MaterialIcons } from "@expo/vector-icons";
 
-export default function Home() {
+export default function Home({ navigation }) {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.users}>
-                <View style={styles.usersItem}>
+                <TouchableOpacity style={styles.usersItem} onPress={() => navigation.navigate("Profile")}>
                     <View style={styles.usersItemLeft}>
                         <Image
                             style={styles.profilePhoto}
@@ -22,7 +22,7 @@ export default function Home() {
                     <View style={styles.usersItemRight}>
                         <MaterialIcons name="keyboard-arrow-right" size={40} color="#ddd"></MaterialIcons>
                     </View>
-                </View>
+                </TouchableOpacity>
             </ScrollView>
         </View >
     );
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-start',
         justifyContent: 'center',
+        backgroundColor: "#fff"
     },
     users: {
-        width: "100%",
-        paddingTop: 40
+        width: "100%"
     },
     usersItem: {
         width: "100%",
