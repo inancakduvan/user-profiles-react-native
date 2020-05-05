@@ -9,6 +9,11 @@ export default function Profile({ navigation }) {
 
     const item = navigation.getParam("results")[0];
 
+    // const adress = item.location.street.name + " " + item.location.street.number + ", " + item.location.city
+    // const mapSrc = 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + str_replace(",", "", str_replace(" ", "+", adress)) + '&z=14&output=embed'
+
+    // console.log(mapSrc)
+
     return (
         <View style={styles.container}>
             <ScrollView style={styles.profile}>
@@ -28,7 +33,7 @@ export default function Profile({ navigation }) {
 
                 <View>
                     <WebView
-                        source={{ html: '<iFrame src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.019327543697!2d28.99383995145631!3d41.04670642490543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab70a6056ba9f%3A0xd9d0ab19bd17d964!2zxZ5pxZ9saSDDlsSfcmV0bWVuZXZp!5e0!3m2!1str!2str!4v1588511742606!5m2!1str!2str" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iFrame>' }}
+                        source={{ html: '<iFrame src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50746.888636547315!2d27.109015151806553!3d38.355780023253025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbe03e042d3037%3A0xa08bfdd9d58f6448!2sAdnan%20Menderes%20Havaliman%C4%B1!5e0!3m2!1str!2str!4v1588694933643!5m2!1str!2str" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iFrame>' }}
                         style={{ marginTop: 20, width: "100%", height: 300 }}
                     />
                 </View>
