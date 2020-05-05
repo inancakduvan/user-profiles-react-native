@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import { MaterialIcons } from "@expo/vector-icons";
 import { WebView } from 'react-native-webview';
 
