@@ -13,7 +13,9 @@ export default function Home({ navigation }) {
 
     useEffect(() => {
         client.on(event, data => {
-            setUsers(users => [...users, data])
+            if (!users.includes(data)) {
+                setUsers(users => [...users, data])
+            }
         })
     }, [client, event])
 

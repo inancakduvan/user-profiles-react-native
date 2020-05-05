@@ -14,8 +14,6 @@ export default function Profile({ navigation }) {
 
     const mapSrc = "https://maps.google.com/maps?q=+" + lat + "+,+" + long + "+&hl=es&z=14&amp;output=embed"
 
-    console.log(mapSrc)
-
     return (
         <View style={styles.container}>
             <ScrollView style={styles.profile}>
@@ -38,6 +36,14 @@ export default function Profile({ navigation }) {
                         source={{ html: '<iFrame src=' + mapSrc + ' width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iFrame>' }}
                         style={{ marginTop: 20, width: "100%", height: 300 }}
                     />
+                </View>
+
+                <View style={styles.mailInfo}>
+                    <View style={styles.mailInfoLeft}>
+                        <MaterialIcons name="mail" size={35} color="#fff" />
+                    </View>
+
+                    <Text style={styles.email}>{item.email}</Text>
                 </View>
 
                 <View style={styles.profileInfoDetail}>
@@ -102,8 +108,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: "#eee"
+        borderTopWidth: 1,
+        borderTopColor: "#eee"
     },
     profileInfoDetailHeading: {
         color: "gray",
@@ -118,6 +124,23 @@ const styles = StyleSheet.create({
     profileInfoDetailIcon: {
         width: 40,
         height: 40
+    },
+    mailInfo: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: -3
+    },
+    mailInfoLeft: {
+        alignItems: "center",
+        justifyContent: "center",
+        width: "25%",
+        height: 80,
+        backgroundColor: "#8895f5"
+    },
+    email: {
+        width: "75%",
+        fontSize: 15,
+        textAlign: "center",
+        fontWeight: "bold"
     }
-
 });
